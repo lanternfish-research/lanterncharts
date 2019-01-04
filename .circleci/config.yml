@@ -34,6 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run deploy!
+      - run: git config user.name "CircleCI" && git config user.email "circleci@lanternfish.cn"
       - run: bash deploy.sh
 
 
