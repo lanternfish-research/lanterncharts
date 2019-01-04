@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="mb-2">Demo Charts</h1>
+        <h1>Demo Charts</h1>
         <HelloWorld/>
     </div>
 </template>

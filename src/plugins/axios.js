@@ -6,7 +6,10 @@ import axios from 'axios';
 let baseURL = '';
 
 switch (process.env.NODE_ENV) {
-	case 'dev' || 'gh-pages':
+	case 'development':
+		baseURL = 'https://mock.lanternfish.ai/mock/5c2edff2bd74d900221cf831';
+		break;
+	case 'gh-pages':
 		baseURL = 'https://mock.lanternfish.ai/mock/5c2edff2bd74d900221cf831';
 		break;
 	case 'test':
