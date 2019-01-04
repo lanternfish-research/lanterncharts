@@ -1,19 +1,18 @@
 <template>
-    <v-app>
-        <v-toolbar app class="white">
-            <v-toolbar-title class="headline">
-                <span class="primary--text">LANTERN</span>
+    <div>
+        <div class="toolbar">
+            <div class="toolbar-title">
+                <strong class="primary--text">LANTERN</strong>
                 <span class="font-weight-light">CHARTS</span>
-            </v-toolbar-title>
-            <v-spacer></v-spacer>
-        </v-toolbar>
+            </div>
+        </div>
 
-        <v-content justify-center class="white">
-            <v-container class="container">
+        <div class="content">
+            <div class="container">
                 <router-view></router-view>
-            </v-container>
-        </v-content>
-    </v-app>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -32,10 +31,26 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.v-toolbar {
+.toolbar {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    &-title {
+        font-size: 2rem;
+        font-weight: 300;
+        strong {
+            font-weight: 500;
+        }
+        span {
+            color: #409eff;
+        }
+    }
+    padding: 1em 2em;
 }
 .container {
-    max-width: 1024px;
+    flex-basis: 1024px;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
 }
 </style>

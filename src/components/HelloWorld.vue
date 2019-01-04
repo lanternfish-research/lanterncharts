@@ -69,7 +69,6 @@ export default {
     padding: 20px;
 
     a {
-        text-decoration: none;
         padding: 0 0.5em;
     }
 }

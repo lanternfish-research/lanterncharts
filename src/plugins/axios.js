@@ -6,14 +6,14 @@ import axios from 'axios';
 let baseURL = '';
 
 switch (process.env.NODE_ENV) {
-	case 'dev':
+	case 'dev' || 'gh-pages':
 		baseURL = 'https://mock.lanternfish.ai/mock/5c2edff2bd74d900221cf831';
 		break;
 	case 'test':
 		/** 在此处添加测试环境接口总地址 */
 		baseURL = '';
 		break;
-	case 'test':
+	case 'production':
 		/** 在此处添加生产环境接口总地址 */
 		baseURL = '';
 		break;
