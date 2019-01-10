@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "echarts": "^4.2.0-rc.2",
+    "mathjs": "^5.4.0",
     "v-charts": "^1.19.0",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",

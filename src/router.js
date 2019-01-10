@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'testdata',
       component: Home
     }
   ]

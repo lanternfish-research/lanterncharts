@@ -17,11 +17,11 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-
+import CountbyYear from "./components/CountbyYear"
 export default {
     name: "App",
     components: {
-        HelloWorld
+        CountbyYear
     },
     data() {
         return {
