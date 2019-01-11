@@ -5,10 +5,10 @@ import router from './router'
 import store from './store'
 import './assets/app.less';
 import '@fortawesome/fontawesome-free/css/all.css';
-import echarts from 'echarts'
+
 
 Vue.config.productionTip = false
-Vue.prototype.$echarts = echarts 
+
 new Vue({
   router,
   store,
