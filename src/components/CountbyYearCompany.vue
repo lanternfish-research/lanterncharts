@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <div id="myChart1" class="chart-container" >
+        <div id="myChart2" class="chart-container" >
      </div>   
     </div>
 </template>
@@ -20,7 +20,8 @@ export default {
     return {
       year :[],
       data1 :[],
-
+      data2: [],
+      name1 :[], 
     }
   },
   mounted(){
@@ -29,18 +30,21 @@ export default {
   methods: {
     async drawLine(){
         /** 请求图表数据 */
-        const { data } = await this.$axios.get("/line");
+        const { data } = await this.$axios.get("/line2");
         this.year = data.testdata.index;
-        this.data1 = data.testdata.data;
+        this.data1 = data.testdata.data1;
+        this.data2 = data.testdata.data2;
+        this.name1 = data.testdata.name;
         console.log(this.year);
         console.log(this.data1);
         let data1max = Math.max.apply(null, this.data1);
+        let data2max = Math.max.apply(null, this.data2);
         console.log(data1max);
         // 基于准备好的dom，初始化echarts实例
-        let Chart = echarts.init(document.getElementById('myChart1'));
+        let Chart = echarts.init(document.getElementById('myChart2'));
         // 绘制图表
         Chart.setOption({
-              title : {
+             title : {
                 x: 'center',
                 align: 'right'
             },
@@ -101,21 +105,26 @@ export default {
                     type : 'category',
                     boundaryGap : false,
                     axisLine: {onZero: false},
-                    data:this.year,//设置x轴
+                    data:this.year,
                 }
             ],
           yAxis: [
                 {
-                    name: '专利数量',                
-                    max:data1max,//设置y轴最大值
+                    name: '专利数量',             
+                    max:(function(){
+                        if(data1max>= data2max) 
+                            return data1max;
+                        else
+                            return data2max;
+                    })(),//设置y轴最大值
                     type: 'value',
                   
                 },
                 
             ],
-          series: [
+    series: [
                 {
-                    name:"专利数量",
+                    name:this.name1[0],//设置y1的name
                     type:'line',
                     animation: false,
                     areaStyle: {
@@ -126,11 +135,26 @@ export default {
                             width: 1
                         }
                     },
-                    data:this.data1,//设置y轴
+                    data:this.data1,//设置y1数据
 
-                },   
+                },  
+                 {
+                    name:this.name1[1],//设置y2的name
+                    type:'line',
+                    animation: false,
+                    areaStyle: {
+                        normal: {}
+                    },
+                    lineStyle: {
+                        normal: {
+                            width: 1
+                        }
+                    },
+                    data:this.data2//设置y2数据
+                    
+                },  
             ],
-          color:["#001852"]
+    color:["#001852","#93b7e3"]
 },true);
     }
   }
