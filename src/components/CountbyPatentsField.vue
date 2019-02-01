@@ -35,6 +35,7 @@ export default {
         let ipcdata = this.ipcdata;
         let nodes = [];
         let categories = [];
+        //for (let i=0; i<this.cate.length;i++){
         for (let i=0; i<this.cate.length;i++){
             categories[i]= {
             name: this.cate[i],
@@ -42,7 +43,8 @@ export default {
         } 
         let data1min=1;
         let data1max=84;  
-        for (let i=0; i<ipcdata.length;i++){
+        //for (let i=0; i<ipcdata.length;i++){
+        for (let i=0; i<31;i++){
             nodes[i]={
               name: ipcdata[i][0],
               value:(function(){
@@ -75,6 +77,15 @@ export default {
         // 绘制图表
         Chart.setOption({
         tooltip: {},
+        toolbox: {
+                show : true,
+                feature : {
+                    restore : {show: true},
+                    saveAsImage : {show: true},
+                },
+                right : '10%',
+                top:'3%',
+            },
         legend: [{
             // selectedMode: 'single',
             data: categories.map(function (a) {

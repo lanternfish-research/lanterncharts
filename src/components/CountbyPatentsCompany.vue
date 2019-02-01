@@ -82,6 +82,8 @@ export default {
             },
             xAxis : [
             {
+            name:'专利数量',
+            nameLocation:'start',
             type : 'value',
             min:(function(){
                         if(data1max>= Math.abs(data2max) )
@@ -102,6 +104,8 @@ export default {
             ],
             yAxis : [
             {
+            //name:'专利领域',
+            //nameLocation:'end',
             type : 'category',
             axisTick : {show: false},
             data : this.field,

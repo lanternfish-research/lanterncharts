@@ -92,6 +92,8 @@ export default {
         containLabel: true
         },
         xAxis: {
+        name:'年份',
+        nameLocation:'start',
         type: 'category',
         data: year,
         boundaryGap: false,
@@ -107,6 +109,8 @@ export default {
          }
         },
         yAxis: {
+        name:'专利领域',
+        nameLocation:'end',
         type: 'category',
         data: field,
         axisLine: {

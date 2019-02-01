@@ -24,6 +24,7 @@ import CountbyPatentsCompany from "./components/CountbyPatentsCompany";
 import CountbyPatentsField from "./components/CountbyPatentsField";
 import CountbyPatentsPercent from "./components/CountbyPatentsPercent";
 import CountbyPatentsYear from "./components/CountbyPatentsYear";
+import CountbyPatentsFieldTreemap from "./components/CountbyPatentsFieldTreemap";
 export default {
     name: "App",
     components: {
@@ -34,6 +35,7 @@ export default {
         CountbyPatentsField,
         CountbyPatentsPercent,
         CountbyCountry,
+        CountbyPatentsFieldTreemap,
     },
     data() {
         return {

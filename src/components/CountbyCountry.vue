@@ -70,8 +70,9 @@ export default {
         toolbox: {
             show: true,
             //orient: 'vertical',
-            left: 'left',
-            top: 'top',
+            //left: 'right',
+            right: '10%',
+            top: '5%',
             feature: {
                 dataView: {readOnly: false},
                 restore: {},

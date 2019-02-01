@@ -41,6 +41,44 @@ export default {
         let Chart = echarts.init(document.getElementById('myChart5'));
         // 绘制图表
         Chart.setOption({
+        tooltip: {
+           trigger: 'item',
+           confine: true,
+           //formatter: "{a} <br/>{b}: {c} ({d}%)"
+           formatter: function(params){
+                          var ipcstr = params.data.flag;
+                          var length = ipcstr.length;
+                          var maxnumber = 20;
+                          var maxrow = Math.ceil(length/maxnumber);
+                          var newipc = '';
+                          if(length> maxnumber){
+                            for(var i=0; i<maxrow;i++){
+                                var everyrow = '';
+                                var start = i*maxnumber;
+                                var end = start+ maxnumber;
+                                if(i== maxrow-1){
+                                    everyrow = ' '+ipcstr.substring(start)+' '
+                                }else{
+                                    everyrow = ' '+ipcstr.substring(start,end)+' '+"</br>"+' ';
+                                }
+                                newipc+=everyrow;
+                            }
+                          }else{
+                            newipc = ' '+ipcstr+' ';
+                          }
+                          var str = params.seriesName+'<hr style="height:1px;border:none;border-top:1px solid #555555;"></hr>'+params.data.name +':' +params.data.value+'&nbsp;&nbsp;<span style="background-color:#334455;color: #eee;">'+ params.percent+'%</span><hr style="height:1px;border:none;border-top:1px solid #555555;"></hr>IPC:'+ newipc ;
+                          return str;
+                    },
+                    backgroundColor: '#eee',
+                    borderColor: '#aaa',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    textStyle:{
+                      color: '#334455',
+                      lineHeight: 22,
+                      align: 'center'
+                    }
+        },
         toolbox: {
                 show : true,
                 feature : {
@@ -62,7 +100,7 @@ export default {
                 emphasis: {
                     show:true,
                     //formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c|{c}}  {per|{d}%}  ',
-                    formatter: function(params){
+                    /*formatter: function(params){
                           var ipcstr = params.data.flag;
                           var length = ipcstr.length;
                           var maxnumber = 20;
@@ -136,7 +174,7 @@ export default {
                             lineHeight: 18,
                             align: 'center'
                         }
-                    }
+                    }*/
                 }
             },
             labelLine: {
