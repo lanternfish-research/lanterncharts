@@ -70,6 +70,7 @@ var formatUtil = echarts.format;
 function getLevelOption() {
         return [
             {
+                color:['#003366','#006699','#0099CC','#336699','#6699CC','#87CEEB','#4A708B','#7EC0EE','#B0E2FF','#4682B4'],
                 itemStyle: {
                     normal: {
                         borderWidth: 0,

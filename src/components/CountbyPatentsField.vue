@@ -66,7 +66,7 @@ export default {
               })(),
               label:{
               normal: {
-                show: ipcdata[i][1]>10
+                show: ipcdata[i][1]>(data1max-data1min)*2/3+data1min,
                  }
               },
               itemStyle: null,
@@ -111,6 +111,13 @@ export default {
                         formatter: '{b}'
                     }
                 },
+                color:['#003366','#006699','#0099CC','#336699','#6699CC','#87CEEB','#4A708B','#7EC0EE','#B0E2FF','#4682B4'],
+                tooltip:{formatter: function(params){
+                  var showvalue = params.data.value;
+                  var truevalue = Math.round((showvalue-8)/42*(data1max-data1min)+data1min);
+                  var str = params.seriesName+'</br>'+params.marker +'&nbsp;' +params.data.name+':'+ truevalue;
+                  return str;
+                }},
             }
         ]
 },true);
